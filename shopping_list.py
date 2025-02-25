@@ -21,7 +21,12 @@ def viewItem(_list):
 
 def viewList(_list):
   row = int(input("What list do you want to see?"))
-  print(_list[row - 1])
+  # print(_list[row - 1])
+  viewFormatList = ""
+  for item in _list[row - 1]:
+    viewFormatList += f" {item}"
+  return(viewFormatList)
+
 
 def consolidateLists(_list):
   newList = []
@@ -39,14 +44,29 @@ def numItem(_list):
          count += 1
   return(count)
 
+def addMilk(_list):
+  for list in _list:
+    if 'milk' not in list:
+      list.append("milk")
+  return(_list)
 
+def milkAndCookies(_list):
+  for i in range(0, len(_list)):
+    for j in range(0, len(_list[i])):
+      if _list[i][j] == "milk":
+        _list[i][j] += " and cookies"
+  return(_list)
+         
 # user inputs
 
-# updateItem(shopping_cart)
-# viewItem(shopping_cart)
-# viewList(shopping_cart)
-# print(f"\n\n{consolidateLists(shopping_cart)}")
+updateItem(shopping_cart)
+viewItem(shopping_cart)
+print(viewList(shopping_cart))
+print({consolidateLists(shopping_cart)})
 print(numItem(shopping_cart))
+print(addMilk(shopping_cart))
+print(milkAndCookies(shopping_cart))
+
 
 
 # functions
